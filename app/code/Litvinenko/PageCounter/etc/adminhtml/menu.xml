@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Litvinenko_PageCounter::additional" title="Additional" translate="title" module="Litvinenko_PageCounter" sortOrder="50" parent="Magento_Backend::content" dependsOnModule="Litvinenko_PageCounter" resource="Litvinenko_PageCounter::additional"/>
+      <add id="Litvinenko_PageCounter::additional_page_counter" title="CMS Page Counter" translate="title" module="Litvinenko_PageCounter" parent="Litvinenko_PageCounter::additional" sortOrder="10" dependsOnModule="Litvinenko_PageCounter" action="page_counter/page" resource="Litvinenko_PageCounter::additional_page_counter"/>
+    </menu>
+</config>

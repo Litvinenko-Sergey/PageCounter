@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Litvinenko\PageCounter\Api\CountRecordRepositoryInterface" type="Litvinenko\PageCounter\Model\CountRecordRepository"/>
+    <preference for="Litvinenko\PageCounter\Api\Data\CountRecordInterface" type="Litvinenko\PageCounter\Model\CountRecord"/>
+    <preference for="Litvinenko\PageCounter\Api\Data\CountRecordSearchResultsInterface" type="Litvinenko\PageCounter\Model\CountRecordSearchResults"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="page_counter_listing_data_source" xsi:type="string">Litvinenko\PageCounter\Model\ResourceModel\CountRecord\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Cms\Controller\Adminhtml\Page\Edit">
+        <plugin name="pageCounterBackendCounter" type="Litvinenko\PageCounter\Plugin\BackendCounter" disabled="false" sortOrder="100"/>
+    </type>
+</config>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="customy_cms_page_counter" resource="default" engine="innodb" comment="Custom CMS Page Counter">
+        <column xsi:type="smallint" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+        <column xsi:type="smallint" name="cms_page_id" unsigned="true" nullable="false" identity="false"
+                comment="CMS Page Id"/>
+        <column xsi:type="smallint" name="backend_counter" unsigned="true" default="0" nullable="false" identity="false"
+                comment="Opened in Backend"/>
+        <column xsi:type="smallint" name="frontend_counter" unsigned="true" default="0" nullable="false" identity="false"
+                comment="Opened in Frontend"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="CUSTOMY_CMS_PAGE_COUNTER_CMS_PAGE_ID">
+            <column name="cms_page_id"/>
+        </constraint>
+    </table>
+</schema>

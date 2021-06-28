@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">page_counter_listing.page_counter_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>page_counter_columns</spinner>
+        <deps>
+            <dep>page_counter_listing.page_counter_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="page_counter_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Litvinenko_PageCounter::additional_page_counter</aclResource>
+        <dataProvider class="Litvinenko\PageCounter\Ui\Component\PageCounter\DataProvider" name="page_counter_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="page_counter_columns">
+        <column name="id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="cms_page_id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">CMD Page Id</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="backend_counter">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Backend Counter</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="frontend_counter">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Frontend Counter</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+    </columns>
+</listing>
